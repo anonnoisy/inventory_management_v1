@@ -1,0 +1,16 @@
+{
+    "/css/bootstrap.min.css": "/css/bootstrap.min.css",
+    "/css/owl.carousel.min.css": "/css/owl.carousel.min.css",
+    "/css/owl.theme.default.min.css": "/css/owl.theme.default.min.css",
+    "/css/summernote-bs4.css": "/css/summernote-bs4.css",
+    "/css/jqvmap.min.css": "/css/jqvmap.min.css",
+    "/js/bootstrap.min.js": "/js/bootstrap.min.js",
+    "/js/jquery.sparkline.min.js": "/js/jquery.sparkline.min.js",
+    "/js/Chart.min.js": "/js/Chart.min.js",
+    "/js/owl.carousel.min.js": "/js/owl.carousel.min.js",
+    "/js/summernote-bs4.js": "/js/summernote-bs4.js",
+    "/js/jquery.chocolat.min.js": "/js/jquery.chocolat.min.js",
+    "/js/jquery.vmap.min.js": "/js/jquery.vmap.min.js",
+    "/css/font/summernote.ttf": "/css/font/summernote.ttf",
+    "/css/font/summernote.woff": "/css/font/summernote.woff"
+}
