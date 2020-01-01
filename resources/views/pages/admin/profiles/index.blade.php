@@ -176,13 +176,3 @@
   </div>
 </div>
 @endsection
-
-@section('script')
-<script>
-  let firstname = $('#firstname').val();
-  let lastname = $('#lastname').val();
-  let email = $('#email').val();
-
-  
-</script>
-@endsection

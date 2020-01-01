@@ -25,5 +25,8 @@ Route::prefix('/dashboard')->namespace('Admin')->name('admin::')->group(function
         Route::get('/manage-admin', 'AdminManagementController@index')->name('home');
         Route::get('/manage-admin/create', 'AdminManagementController@create')->name('create');
         Route::post('/manage-admin/store', 'AdminManagementController@store')->name('store');
+        Route::get('/manage-admin/{id}/show', 'AdminManagementController@show')->name('show');
+        Route::put('/manage-admin/{id}/update-status', 'AdminManagementController@status')->name('status');
+        Route::get('/manage-admin/filter-search', 'AdminManagementController@searchByFilter')->name('search-by-filter');
     });
 });

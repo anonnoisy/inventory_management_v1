@@ -33,7 +33,7 @@ interface UserRepositoryInterface
   public function getUserInformation(int $id);
 
   /**
-   * Update user
+   * inserting user
    */
   public function storeUser($data);
 
@@ -41,5 +41,15 @@ interface UserRepositoryInterface
    * Update user
    */
   public function updateUser(int $id, array $data);
+
+  /**
+   * Update user active
+   */
+  public function updateUserByStatus(int $id, int $active);
+
+  /**
+   * Searching user data
+   */
+  public function searchUserData(array $data);
 
 }

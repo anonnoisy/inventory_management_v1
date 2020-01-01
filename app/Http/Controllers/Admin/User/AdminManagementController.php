@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use App\Repositories\UserRepository;
+use App\User;
 
 class AdminManagementController extends Controller
 {
@@ -45,10 +46,60 @@ class AdminManagementController extends Controller
     public function store(UserRequest $request)
     {
         $data = (array) $request->all();
-        $data['user_roles'] = 1;
+        $data['user_roles'] = 2;
+        $data['user_parent_id'] = auth()->user()->id;
 
         $this->user->storeUser($data);
         return redirect()->back()->with('status', 'Successfully create ' . $request->firstname . ' admin user.');
+    }
+
+    /**
+     * Function for show edit/or detail admin user data
+     */
+    public function show($id)
+    {
+        $user = $this->user->getUser($id);
+        return view('pages.admin.users.administrator.show', compact('user'));
+    }
+
+    /**
+     * Function for delete admin user data
+     */
+    public function destroy($id)
+    {
+        $user = $this->user->getUser($id);
+        return view('pages.admin.users.administrator.show', compact('user'));
+    }
+
+    /**
+     * Function for update the active status of user
+     */
+    public function status($id, Request $request)
+    {
+        $this->validate($request, ['active' => 'required']);
+
+        if (! $this->user->updateUserByStatus($id, $request->active)) {
+            return redirect()->back()->with('status', 'Failed to change active status ' . $request->firstname);
+        }
+
+        $status = $request->active == 1 ? 'active' : 'inactive';
+
+        return redirect()->back()->with('status', 'Successfully change this user status to ' . $status);
+    }
+
+    /**
+     * Funtion for search user data by filter or input search
+     */
+    public function searchByFilter(Request $request)
+    {
+        $data['all'] = $request->has('all');
+        $data['active'] = $request->has('active');
+        $data['inactive'] = $request->has('inactive');
+        $data['search'] = $request->search;
+
+        $users = $this->user->searchUserData($data);
+        $search = $data['search'];
+        return view('pages.admin.users.administrator.index', compact('users', 'search'));
     }
 
 }
