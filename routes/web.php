@@ -21,22 +21,26 @@ Route::prefix('/dashboard')->namespace('Admin')->name('admin::')->group(function
     });
 
     // route to User Management
-    Route::prefix('')->namespace('User')->name('user-manage::admin::')->group(function (){
-        Route::get('/manage-admin', 'AdminManagementController@index')->name('home');
-        Route::get('/manage-admin/create', 'AdminManagementController@create')->name('create');
-        Route::post('/manage-admin/store', 'AdminManagementController@store')->name('store');
-        Route::get('/manage-admin/{id}/show', 'AdminManagementController@show')->name('show');
-        Route::put('/manage-admin/{id}/update-status', 'AdminManagementController@status')->name('status');
-        Route::get('/manage-admin/filter-search', 'AdminManagementController@searchByFilter')->name('search-by-filter');
-    });
-    
-    // route to User Management
-    Route::prefix('')->namespace('User')->name('user-manage::head-of-warehouse::')->group(function (){
-        Route::get('/manage-head-of-warehouse', 'HeadOfWarehouseManagementController@index')->name('home');
-        Route::get('/manage-head-of-warehouse/create', 'HeadOfWarehouseManagementController@create')->name('create');
-        Route::post('/manage-head-of-warehouse/store', 'HeadOfWarehouseManagementController@store')->name('store');
-        Route::get('/manage-head-of-warehouse/{id}/show', 'HeadOfWarehouseManagementController@show')->name('show');
-        Route::put('/manage-head-of-warehouse/{id}/update-status', 'HeadOfWarehouseManagementController@status')->name('status');
-        Route::get('/manage-head-of-warehouse/filter-search', 'HeadOfWarehouseManagementController@searchByFilter')->name('search-by-filter');
+    Route::prefix('')->namespace('User')->name('user-manage::')->group(function (){
+
+        // Route user admin management
+        Route::name('admin::')->group(function (){
+            Route::get('/manage-admin', 'AdminManagementController@index')->name('home');
+            Route::get('/manage-admin/create', 'AdminManagementController@create')->name('create');
+            Route::post('/manage-admin/store', 'AdminManagementController@store')->name('store');
+            Route::get('/manage-admin/{id}/show', 'AdminManagementController@show')->name('show');
+            Route::put('/manage-admin/{id}/update-status', 'AdminManagementController@status')->name('status');
+            Route::get('/manage-admin/filter-search', 'AdminManagementController@searchByFilter')->name('search-by-filter');
+        });
+
+        // Route user head of warehouse management
+        Route::name('head-of-warehouse::')->group(function (){
+            Route::get('/manage-head-of-warehouse', 'HeadOfWarehouseManagementController@index')->name('home');
+            Route::get('/manage-head-of-warehouse/create', 'HeadOfWarehouseManagementController@create')->name('create');
+            Route::post('/manage-head-of-warehouse/store', 'HeadOfWarehouseManagementController@store')->name('store');
+            Route::get('/manage-head-of-warehouse/{id}/show', 'HeadOfWarehouseManagementController@show')->name('show');
+            Route::put('/manage-head-of-warehouse/{id}/update-status', 'HeadOfWarehouseManagementController@status')->name('status');
+            Route::get('/manage-head-of-warehouse/filter-search', 'HeadOfWarehouseManagementController@searchByFilter')->name('search-by-filter');
+        });
     });
 });
