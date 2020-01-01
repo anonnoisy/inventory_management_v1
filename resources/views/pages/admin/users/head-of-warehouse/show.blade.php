@@ -5,8 +5,8 @@
 <div class="section-header">
     <h1>User Management</h1>
     <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="{{ route('admin::user-manage::home') }}">Admin Management</a></div>
-        <div class="breadcrumb-item">Show or edit Admin</div>
+        <div class="breadcrumb-item active"><a href="{{ route('admin::user-manage::head-of-warehouse::home') }}">Admin Management</a></div>
+        <div class="breadcrumb-item">Show or edit Head of Warehouse</div>
     </div>
 </div>
 
@@ -48,7 +48,7 @@
                 <div class="profile-widget-description">
                     <div class="card-header">
                         <h4>Edit Admin user data</h4>
-                        <form action="{{ route('admin::user-manage::status', [ $user->id ]) }}" method="post" class="ml-auto">
+                        <form action="{{ route('admin::user-manage::head-of-warehouse::status', [ $user->id ]) }}" method="post" class="ml-auto">
                             @method('PUT')
                             @csrf
                             <input type="hidden" name="active" value="{{ $user->active == 1 ? 0 : 1 }}">
@@ -59,7 +59,7 @@
                             @endif
                         </form>
                     </div>
-                    <form method="post" action="{{ route('admin::profile-update') }}" class="needs-validation" novalidate="">
+                    <form method="post" action="{{ route('admin::user-manage::head-of-warehouse::update', [ $user->id ]) }}" class="needs-validation" novalidate="">
                         @method('PUT')
                         @csrf
                         <div class="card-body">
@@ -125,8 +125,8 @@
                                 <div class="form-group col-6">
                                     <label>Province</label>
                                     <select class="form-control selectric @error('province') is-invalid @enderror" value="{{ $user->province }}" name="province">
-                                        <option value="west java">West Java</option>
-                                        <option value="east java">East Java</option>
+                                        <option value="west java" @if($user->province == 'west java') selected @endif>West Java</option>
+                                        <option value="east java" @if($user->province == 'east java') selected @endif>East Java</option>
                                     </select>
 
                                     @error('province')

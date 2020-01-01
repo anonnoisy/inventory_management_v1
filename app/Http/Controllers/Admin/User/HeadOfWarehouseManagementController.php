@@ -63,6 +63,16 @@ class HeadOfWarehouseManagementController extends Controller
     }
 
     /**
+     * Function for update user head of warehouse
+     */
+    public function update(UserRequest $request, $id)
+    {
+        $this->user->updateUser($id, $request->all());
+
+        return redirect()->back()->with('status', 'Successfully updates user Head of Warehouse');
+    }
+
+    /**
      * Function for delete admin user data
      */
     public function destroy($id)
