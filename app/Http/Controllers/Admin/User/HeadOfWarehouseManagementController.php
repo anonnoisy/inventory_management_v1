@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Repositories\UserRepository;
 use App\User;
 
-class AdminManagementController extends Controller
+class HeadOfWarehouseManagementController extends Controller
 {
 
     protected $user;
@@ -28,8 +28,8 @@ class AdminManagementController extends Controller
     public function index()
     {
         // $users = $this->user->findUser('user_roles', 'Admin', true, 10);
-        $users = $this->user->getUsers(2);
-        return view('pages.admin.users.administrator.index')->with(compact('users'));
+        $users = $this->user->getUsers(3);
+        return view('pages.admin.users.head-of-warehouse.index')->with(compact('users'));
     }
 
     /**
@@ -37,7 +37,7 @@ class AdminManagementController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.users.administrator.create');
+        return view('pages.admin.users.head-of-warehouse.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class AdminManagementController extends Controller
     public function store(UserRequest $request)
     {
         $data = (array) $request->all();
-        $data['user_roles'] = 2;
+        $data['user_roles'] = 3;
         $data['user_parent_id'] = auth()->user()->id;
 
         $this->user->storeUser($data);
@@ -59,7 +59,7 @@ class AdminManagementController extends Controller
     public function show($id)
     {
         $user = $this->user->getUser($id);
-        return view('pages.admin.users.administrator.show', compact('user'));
+        return view('pages.admin.users.head-of-warehouse.show', compact('user'));
     }
 
     /**
@@ -68,7 +68,7 @@ class AdminManagementController extends Controller
     public function destroy($id)
     {
         $user = $this->user->getUser($id);
-        return view('pages.admin.users.administrator.show', compact('user'));
+        return view('pages.admin.users.head-of-warehouse.show', compact('user'));
     }
 
     /**
@@ -96,11 +96,11 @@ class AdminManagementController extends Controller
         $data['active'] = $request->has('active');
         $data['inactive'] = $request->has('inactive');
         $data['search'] = $request->search;
-        $user_roles = 2;
+        $user_roles = 3;
 
         $users = $this->user->searchUserData($data, $user_roles);
         $search = $data['search'];
-        return view('pages.admin.users.administrator.index', compact('users', 'search'));
+        return view('pages.admin.users.head-of-warehouse.index', compact('users', 'search'));
     }
 
 }

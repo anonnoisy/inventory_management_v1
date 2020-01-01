@@ -19,9 +19,9 @@
         <a href="#" class="nav-link has-dropdown"><i class="fas fa-user-alt"></i><span>User Management</span></a>
         <ul class="dropdown-menu">
           <li class="{{ Request::is('user-management/administrator') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('admin::user-manage::home') }}">Administrator</a>
+            <a class="nav-link" href="{{ route('admin::user-manage::admin::home') }}">Administrator</a>
           </li>
-          <li class="{{ Request::is('user-management/head-of-warehouse') ? 'active' : '' }}"><a class="nav-link" href="index.html">Head of Warehouse</a></li>
+          <li class="{{ Request::is('user-management/head-of-warehouse') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin::user-manage::head-of-warehouse::home') }}">Head of Warehouse</a></li>
         </ul>
       </li>
   </aside>

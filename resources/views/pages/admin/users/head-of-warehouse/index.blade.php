@@ -31,20 +31,20 @@
 @endif
 
 <div class="section-body">
-    <h2 class="section-title">Admin Management</h2>
-    <p class="section-lead">You can manipulate user admin data here.</p>
+    <h2 class="section-title">Head Of Warehouse Management</h2>
+    <p class="section-lead">You can manipulate user head of warehouse data here.</p>
 
     <div class="row mt-sm-4">
         <div class="col-12 col-md-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
                     <h4>Users Admin</h4>
-                    <a href="{{ route('admin::user-manage::admin::create') }}" class="ml-auto btn btn-primary">
-                        <i class="fas fa-plus"></i> <span>Create new admin</span>
+                    <a href="{{ route('admin::user-manage::head-of-warehouse::create') }}" class="ml-auto btn btn-primary">
+                        <i class="fas fa-plus"></i> <span>Create new head of warehouse</span>
                     </a>
                 </div>
                 {{-- badge filter --}}
-                <form action="{{ route('admin::user-manage::admin::search-by-filter') }}" method="GET">
+                <form action="{{ route('admin::user-manage::head-of-warehouse::search-by-filter') }}" method="GET">
                     @method('GET')
                     @csrf
                     <div class="badges mt-3 ml-3">
@@ -57,7 +57,7 @@
                             <div class="col col-md-6 col-lg-6">
                                 <div class="form-inline justify-content-end mr-3 search-form">
                                     <div class="form-group mb-3">
-                                        <input class="form-control rounded-pill mr-3" type="text" name="search" placeholder="Search user admin by name" value="{{ $search ?? '' }}">
+                                        <input class="form-control rounded-pill mr-3" type="text" name="search" placeholder="Search user HoW by name" value="{{ $search ?? '' }}">
                                         <button class="btn btn-primary btn-small rounded-pill pl-4 pr-4">Search</button>
                                     </div>
                                 </div>
@@ -89,10 +89,10 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin::user-manage::admin::show', [ $user->id ]) }}" class="btn btn-primary">
+                                    <a href="{{ route('admin::user-manage::head-of-warehouse::show', [ $user->id ]) }}" class="btn btn-primary">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="{{ route('admin::user-manage::admin::show', [ $user->id ]) }}" class="btn btn-danger">
+                                    <a href="{{ route('admin::user-manage::head-of-warehouse::show', [ $user->id ]) }}" class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>

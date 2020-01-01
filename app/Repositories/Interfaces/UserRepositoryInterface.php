@@ -15,7 +15,7 @@ interface UserRepositoryInterface
   /**
    * Get all users
    */
-  public function getUsers();
+  public function getUsers(int $user_roles = null);
 
   /**
    * Check user has same email
@@ -50,6 +50,6 @@ interface UserRepositoryInterface
   /**
    * Searching user data
    */
-  public function searchUserData(array $data);
+  public function searchUserData(array $data, int $user_roles);
 
 }

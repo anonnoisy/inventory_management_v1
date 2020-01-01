@@ -5,7 +5,7 @@
 <div class="section-header">
     <h1>User Management</h1>
     <div class="section-header-breadcrumb">
-        <div class="breadcrumb-item active"><a href="{{ route('admin::user-manage::admin::home') }}">Admin Management</a></div>
+        <div class="breadcrumb-item active"><a href="{{ route('admin::user-manage::head-of-warehouse::home') }}">Admin Management</a></div>
         <div class="breadcrumb-item">Create new admin</div>
     </div>
 </div>
@@ -32,7 +32,7 @@
                     <h4>Create new admin user</h4>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin::user-manage::admin::store') }}">
+                    <form method="POST" action="{{ route('admin::user-manage::head-of-warehouse::store') }}">
                         @csrf
                         <div class="row">
                             <div class="form-group col-6">
@@ -145,7 +145,7 @@
                         </div>
 
                         <div class="form-group">
-                            <a href="{{ route('admin::user-manage::admin::home') }}" class="btn btn-danger btn-lg">Cancel</a>
+                            <a href="{{ route('admin::user-manage::head-of-warehouse::home') }}" class="btn btn-danger btn-lg">Cancel</a>
                             <button type="submit" class="btn btn-primary btn-lg">Register</button>
                         </div>
                     </form>
