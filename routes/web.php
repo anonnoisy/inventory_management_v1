@@ -20,8 +20,8 @@ Route::prefix('/dashboard')->namespace('Admin')->name('admin::')->group(function
         Route::put('profile/update', 'ProfileController@update')->name('profile-update');
     });
 
-    // route to User Management
-    Route::prefix('')->namespace('User')->name('user-manage::')->group(function (){
+    // Route to User Management
+    Route::prefix('/user-manage')->namespace('User')->name('user-manage::')->group(function (){
 
         // Route user admin management
         Route::name('admin::')->group(function (){
@@ -43,4 +43,14 @@ Route::prefix('/dashboard')->namespace('Admin')->name('admin::')->group(function
             Route::get('/manage-head-of-warehouse/filter-search', 'HeadOfWarehouseManagementController@searchByFilter')->name('search-by-filter');
         });
     });
+
+    // Route to product management
+    Route::prefix('/product-manage')->namespace('Product')->name('product-manage::')->group(function (){
+
+        // Route to brand product management
+        Route::name('brand::')->group(function (){
+
+        });
+    });
+
 });
