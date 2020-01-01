@@ -23,11 +23,17 @@ class UserRepository implements UserRepositoryInterface
   /**
    * Implement get all users
    */
-  public function getUsers()
+  public function getUsers(int $user_roles = null)
   {
-    return User::where('user_parent_id', auth()->user()->id)
-                ->select('id', 'firstname', 'lastname', 'email', 'active', 'created_at')
-                ->orderBy('created_at', 'DESC')
+
+    $users = User::where('user_parent_id', auth()->user()->id)
+                  ->select('id', 'firstname', 'lastname', 'email', 'active', 'created_at');
+
+    if (! empty($user_roles)) {
+      $users->where('user_roles', $user_roles);
+    }
+
+    return $users->orderBy('created_at', 'DESC')
                 ->paginate(10);
   }
 
@@ -101,14 +107,16 @@ class UserRepository implements UserRepositoryInterface
   /**
    * Search users data
    */
-  public function searchUserData(array $data)
+  public function searchUserData(array $data, int $user_roles)
   {
 
     $users = User::where('user_parent_id', auth()->user()->id)
+                  ->where('user_roles', $user_roles)
+                  ->orderBy('created_at', 'DESC')
                   ->select('id', 'firstname', 'lastname', 'email', 'active', 'created_at');
 
     if ($data['all']) {
-      return $this->getUsers();
+      return $this->getUsers($user_roles);
     }
 
     if ($data['active']) {
