@@ -41,4 +41,8 @@ class User extends Authenticatable
         return $this->belongsTo('App\UserRole');
     }
 
+    public function brands() {
+        return $this->hasMany(Brand::class);
+    }
+
 }
