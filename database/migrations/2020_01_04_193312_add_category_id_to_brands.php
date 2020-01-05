@@ -15,7 +15,7 @@ class AddCategoryIdToBrands extends Migration
     {
         Schema::table('brands', function (Blueprint $table) {
             $table->unsignedBigInteger('category_id')->after('user_parent_id');
-            $table->foreign('category_id')->references('id')->on('brands')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

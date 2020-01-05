@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Brand;
+use App\Category;
 use App\Generators\RandomNameGenerator;
 use App\Repositories\Interfaces\BrandRepositoryInterface;
 
@@ -38,6 +39,8 @@ class BrandRepository implements BrandRepositoryInterface
      */
     public function storeBrand($data)
     {
+        $data['user_parent_id'] = auth()->user()->id;
+
         if (empty($data['code_name'])) {
             $data['code_name'] = RandomNameGenerator::generateRandomCodeName("BN", $data['name'], 5);
         }

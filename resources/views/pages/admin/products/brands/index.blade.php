@@ -50,9 +50,9 @@
                     <div class="badges mt-3 ml-3">
                         <div class="row align-items-center">
                             <div class="col col-md-6 col-lg-6">
-                                <button name="all" class="badge badge-primary" data-toggle="tooltip" data-placement="top" title data-original-title="Show all the users">All Brands</button>
-                                <button name="active" class="badge badge-success" data-toggle="tooltip" data-placement="top" title data-original-title="Only show all the users is active">Active Brands</button>
-                                <button name="inactive" class="badge badge-danger" data-toggle="tooltip" data-placement="top" title data-original-title="Only show all the users is inactive">Inactive Brands</button>
+                                <button name="all" class="badge badge-primary" data-toggle="tooltip" data-placement="top" title data-original-title="Show all the brands">All Brands</button>
+                                <button name="active" class="badge badge-success" data-toggle="tooltip" data-placement="top" title data-original-title="Only show all the brands is active">Active Brands</button>
+                                <button name="inactive" class="badge badge-danger" data-toggle="tooltip" data-placement="top" title data-original-title="Only show all the brands is inactive">Inactive Brands</button>
                             </div>
                             <div class="col col-md-6 col-lg-6">
                                 <div class="form-inline justify-content-end mr-3 search-form">

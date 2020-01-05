@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin\Product;
 
 use App\Brand;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Brand\StoreBrandRequest;
 use App\Http\Requests\Brand\UpdateBrandRequest;
 use App\Repositories\BrandRepository;
+use App\Repositories\Product\CategoryRepository;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -13,11 +15,13 @@ class BrandManagementController extends Controller
 {
 
     protected $brand;
+    protected $category;
 
-    public function __construct(BrandRepository $brand)
+    public function __construct(BrandRepository $brand, CategoryRepository $category)
     {
         $this->middleware('auth');
         $this->brand = $brand;
+        $this->category = $category;
     }
 
     /**
@@ -34,16 +38,15 @@ class BrandManagementController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.products.brands.create');
+        $categories = $this->category->getCategories();
+        return view('pages.admin.products.brands.create', compact('categories'));
     }
     
     /**
      * Function to return insert brand to database
      */
-    public function store(Request $request)
+    public function store(StoreBrandRequest $request)
     {
-
-        $request['user_parent_id'] = auth()->user()->id;
         $brand = $this->brand->storeBrand($request->all());
 
         if (! $brand) {

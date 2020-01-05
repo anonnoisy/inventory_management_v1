@@ -35,7 +35,23 @@
                     <form method="POST" action="{{ route('admin::product-manage::brand::store') }}">
                         @csrf
                         <div class="row">
-                            <div class="form-group col-6">
+                            <div class="form-group col-4">
+                                <label for="category_id">Category Name</label>
+                                <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror" aria-describedby="categoryHelp">
+                                    <option>-- Select Category --</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                                <small id="categoryHelp" class="form-text text-danger">* Please insert category before create a brand</small>
+
+                                @error('category_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group col-4">
                                 <label for="name">Brand Name</label>
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autofocus>
 
@@ -45,8 +61,8 @@
                                     </span>
                                 @enderror
                             </div>
-                            <div class="form-group col-6">
-                                <label for="code_name">Code Name</label>
+                            <div class="form-group col-4">
+                                <label for="category_id">Code Name</label>
                                 <input id="code_name" type="text" class="form-control @error('code_name') is-invalid @enderror" name="code_name" value="{{ old('code_name') }}" aria-describedby="codeNameHelp">
                                 <small id="codeNameHelp" class="form-text text-muted">* You can pass this column for automatic generate code name</small>
 

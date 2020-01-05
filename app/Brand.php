@@ -2,13 +2,14 @@
 
 namespace App;
 
+use App\Repositories\Product\CategoryRepository;
 use Illuminate\Database\Eloquent\Model;
 
 class Brand extends Model
 {
 
     protected $fillable = [
-        'user_parent_id', 'name', 'code_name', 'description', 'image', 'active'
+        'user_parent_id', 'category_id', 'name', 'code_name', 'description', 'image', 'active'
     ];
 
     public function users()
@@ -16,9 +17,9 @@ class Brand extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function cateries()
+    public function categories()
     {
-        return $this->belongsTo(Brand::class);
+        return $this->belongsTo(Category::class);
     }
 
 }
