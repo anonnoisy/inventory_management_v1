@@ -15,6 +15,17 @@
           <i class="fas fa-fire"></i> <span>Dashboard</span>
         </a>
       </li>
+      <li class="nav-item dropdown {{ Request::is('product-manage') ? 'active' : '' }}">
+        <a href="javascript;;" class="nav-link has-dropdown"><i class="fas fa-ticket-alt"></i><span>Products Management</span></a>
+        <ul class="dropdown-menu">
+          <li class="{{ Request::is('product-manage/categories') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin::product-manage::category::home') }}">Categories</a>
+          </li>
+          <li class="{{ Request::is('product-manage/brands') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin::product-manage::brand::home') }}">Brands</a>
+          </li>
+        </ul>
+      </li>
       <li class="nav-item dropdown {{ Request::is('user-management') ? 'active' : '' }}">
         <a href="javascript;;" class="nav-link has-dropdown"><i class="fas fa-user-alt"></i><span>Users Management</span></a>
         <ul class="dropdown-menu">
@@ -23,14 +34,6 @@
           </li>
           <li class="{{ Request::is('user-management/head-of-warehouse') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin::user-manage::head-of-warehouse::home') }}">Head of Warehouse</a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-item dropdown {{ Request::is('product-manage') ? 'active' : '' }}">
-        <a href="javascript;;" class="nav-link has-dropdown"><i class="fas fa-ticket-alt"></i><span>Products Management</span></a>
-        <ul class="dropdown-menu">
-          <li class="{{ Request::is('product-manage/brands') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('admin::product-manage::brand::home') }}">Brands</a>
           </li>
         </ul>
       </li>

@@ -3,8 +3,8 @@
 namespace App\Repositories;
 
 use App\Brand;
+use App\Generators\RandomNameGenerator;
 use App\Repositories\Interfaces\BrandRepositoryInterface;
-use App\User;
 
 class BrandRepository implements BrandRepositoryInterface
 {
@@ -34,33 +34,14 @@ class BrandRepository implements BrandRepositoryInterface
     }
 
     /**
-     * This function for create generate random string
-     */
-    public function generateRandomString(int $length = null)
-    {
-        return substr(str_shuffle(str_repeat($x='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
-    }
-
-    /**
-     * This function for genreate random code name of brand
-     */
-    public function generateRandomCodeName(string $name)
-    {
-        $get_first_word = explode(' ', trim($name));
-        $get_first_word = strtoupper($get_first_word[0]);
-        return "BN_" . $get_first_word . date_format(now(), 'dmy') . "_" . $this->generateRandomString(5);
-    }
-
-    /**
      * This function for create new brand or insert into brands table
      */
     public function storeBrand($data)
     {
         if (empty($data['code_name'])) {
-            $data['code_name'] = $this->generateRandomCodeName($data['name']);
+            $data['code_name'] = RandomNameGenerator::generateRandomCodeName("BN", $data['name'], 5);
         }
 
-        // dd($data);
         return Brand::create($data);
     }
 
@@ -69,6 +50,8 @@ class BrandRepository implements BrandRepositoryInterface
      */
     public function updateBrand(int $id, $data)
     {
+        $data['code_name'] = RandomNameGenerator::generateRandomCodeName("BN", $data['name'], 5);
+
         return Brand::findOrFail($id)
                     ->update([
                         'name' => $data['name'],
@@ -78,8 +61,8 @@ class BrandRepository implements BrandRepositoryInterface
     }
 
     /**
-   * Update bran status
-   */
+     * Update bran status
+     */
     public function updateStatusBrand(int $id, int $active)
     {
         $brand = Brand::where('id', $id)->first();
@@ -87,8 +70,8 @@ class BrandRepository implements BrandRepositoryInterface
     }
 
     /**
-   * Search users data
-   */
+     * Search users data
+     */
     public function searchBrandData(array $data)
     {
 

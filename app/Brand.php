@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Brand extends Model
 {
+
     protected $fillable = [
         'user_parent_id', 'name', 'code_name', 'description', 'image', 'active'
     ];
@@ -13,6 +14,11 @@ class Brand extends Model
     public function users()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function cateries()
+    {
+        return $this->belongsTo(Brand::class);
     }
 
 }

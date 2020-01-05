@@ -9,26 +9,11 @@ interface BrandRepositoryInterface
      * This function for get a brand by id
      */
     public function getBrandById(int $id);
-    
-    /**
-     * This function for get a brand by id
-     */
-    public function getBrandByCodeName(string $code_name);
 
     /**
      * This function fot get all brands what user have
      */
     public function getBrands();
-
-    /**
-     * This function for generate random string
-     */
-    public function generateRandomCodeName(string $name);
-
-    /**
-     * This function for generate random code name of brand
-     */
-    public function generateRandomString(int $length = null);
 
     /**
      * This function for create a new brand to insert into table brands

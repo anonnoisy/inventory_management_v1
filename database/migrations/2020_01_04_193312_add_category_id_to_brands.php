@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserParentIdToBrands extends Migration
+class AddCategoryIdToBrands extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class AddUserParentIdToBrands extends Migration
     public function up()
     {
         Schema::table('brands', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_parent_id')->after('id');
-            $table->foreign('user_parent_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('category_id')->after('user_parent_id');
+            $table->foreign('category_id')->references('id')->on('brands')->onDelete('cascade');
         });
     }
 
@@ -27,8 +27,8 @@ class AddUserParentIdToBrands extends Migration
     public function down()
     {
         Schema::table('brands', function (Blueprint $table) {
-            $table->dropForeign(['user_parent_id']);
-            $table->dropColumn('user_parent_id');
+            $table->dropForeign(['category_id']);
+            $table->dropColumn('category_id');
         });
     }
 }
