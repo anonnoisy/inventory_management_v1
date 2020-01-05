@@ -24,6 +24,9 @@
           <li class="{{ Request::is('product-manage/brands') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin::product-manage::brand::home') }}">Brands</a>
           </li>
+          <li class="{{ Request::is('product-manage/items') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin::product-manage::item::home') }}">Items</a>
+          </li>
         </ul>
       </li>
       <li class="nav-item dropdown {{ Request::is('user-management') ? 'active' : '' }}">

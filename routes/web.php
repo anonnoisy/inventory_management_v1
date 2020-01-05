@@ -77,6 +77,13 @@ Route::prefix('/dashboard')->namespace('Admin')->name('admin::')->group(function
             Route::get('manage-brands/search', 'BrandManagementController@searchByFilter')->name('search-by-filter');
         });
 
+        // Route to item product management
+        Route::name('item::')->group(function () {
+            Route::get('manage-items', 'ItemManagementController@index')->name('home');
+            Route::get('manage-items/create', 'ItemManagementController@create')->name('create');
+            Route::post('manage-items/create/store', 'ItemManagementController@store')->name('store');
+        });
+
     });
 
 });
