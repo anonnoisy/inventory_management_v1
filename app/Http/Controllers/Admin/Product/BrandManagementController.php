@@ -78,7 +78,7 @@ class BrandManagementController extends Controller
             return redirect()->back()->with('status', 'Failed to update a brand');
         }
 
-        return redirect()->back()->with('status', 'Successfully to update a brand');
+        return redirect()->route('admin::product-manage::brand::home')->with('status', 'Successfully to update a brand');
     }
 
     /**
