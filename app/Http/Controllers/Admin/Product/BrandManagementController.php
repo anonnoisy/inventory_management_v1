@@ -61,7 +61,7 @@ class BrandManagementController extends Controller
      */
     public function show($id)
     {
-        $brand = $this->brand->getBrandById($id);
+        $brand = $this->brand->getBrand($id);
         return view('pages.admin.products.brands.show', compact('brand'));
     }
 
