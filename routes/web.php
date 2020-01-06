@@ -35,7 +35,7 @@ Route::prefix('/dashboard')->namespace('Admin')->name('admin::')->group(function
             Route::get('/manage-admin/{id}/show', 'AdminManagementController@show')->name('show');
             Route::put('/manage-admin/{id}/show/update', 'AdminManagementController@update')->name('update');
             Route::put('/manage-admin/{id}/update/status', 'AdminManagementController@status')->name('status');
-            Route::get('/manage-admin/filter-search', 'AdminManagementController@searchByFilter')->name('search-by-filter');
+            Route::get('/manage-admin/search', 'AdminManagementController@searchByFilter')->name('search-by-filter');
         });
 
         // Route user head of warehouse management
