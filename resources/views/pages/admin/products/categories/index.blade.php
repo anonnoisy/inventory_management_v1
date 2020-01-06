@@ -105,7 +105,7 @@
                     </div>
                 </div>
                 <div class="card-footer text-right ml-auto">
-                    {!! $items->appends(Request::all())->links() !!}
+                    {!! $categories->appends(Request::all())->links() !!}
                 </div>
             </div>
         </div>
