@@ -15,6 +15,7 @@ class ItemRepository implements ItemRepositoryInterface
     public function getItem($id)
     {
         return Item::where('user_parent_id', auth()->user()->id)
+                        ->with(['users', 'categories', 'brands'])
                         ->where('id', $id)
                         ->first();
     }
@@ -25,6 +26,7 @@ class ItemRepository implements ItemRepositoryInterface
     public function getItems()
     {
         return Item::where('user_parent_id', auth()->user()->id)
+                        ->with(['users'])
                         ->orderBy('created_at', 'DESC')
                         ->paginate(10);
     }
@@ -53,8 +55,13 @@ class ItemRepository implements ItemRepositoryInterface
 
         return Item::findOrFail($id)
                         ->update([
+                            'category_id' => $data['category_id'],
+                            'brand_id' => $data['brand_id'],
                             'name' => $data['name'],
                             'code_name' => $data['code_name'],
+                            'price' => $data['price'],
+                            'quantity' => $data['quantity'],
+                            'description' => $data['description'],
                         ]);
     }
 

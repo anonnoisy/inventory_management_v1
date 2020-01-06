@@ -82,6 +82,11 @@ Route::prefix('/dashboard')->namespace('Admin')->name('admin::')->group(function
             Route::get('manage-items', 'ItemManagementController@index')->name('home');
             Route::get('manage-items/create', 'ItemManagementController@create')->name('create');
             Route::post('manage-items/create/store', 'ItemManagementController@store')->name('store');
+            Route::get('manage-item/{id}/show', 'ItemManagementController@show')->name('show');
+            Route::put('manage-item/{id}/update', 'ItemManagementController@update')->name('update');
+            Route::put('manage-item/{id}/update/status', 'ItemManagementController@status')->name('status');
+            Route::get('manage-item/{id}/delete', 'ItemManagementController@destroy')->name('destroy');
+            Route::get('manage-items/search', 'ItemManagementController@searchByFilter')->name('search-by-filter');
         });
 
     });

@@ -48,7 +48,7 @@
                         <div class="row">
                             <div class="form-group col-6">
                                 <label for="name">Brand Name</label>
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $brand->name }}" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $brand->name) }}" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -58,7 +58,7 @@
                             </div>
                             <div class="form-group col-6">
                                 <label for="code_name">Code Name</label>
-                                <input id="code_name" type="text" class="form-control @error('code_name') is-invalid @enderror" name="code_name" value="{{ $brand->code_name }}" readonly>
+                                <input id="code_name" type="text" class="form-control @error('code_name') is-invalid @enderror" name="code_name" value="{{ old('code_name', $brand->code_name) }}" readonly>
 
                                 @error('code_name')
                                     <span class="invalid-feedback" role="alert">
@@ -70,7 +70,7 @@
 
                         <div class="form-group">
                             <label for="description">Description of brand</label>
-                            <input id="description" type="description" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" aria-describedby="descriptionHelp">
+                            <input id="description" type="description" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description', $brand->description) }}" aria-describedby="descriptionHelp">
                             <small id="descriptionHelp" class="form-text text-muted">* This column is optional</small>
 
                             @error('description')

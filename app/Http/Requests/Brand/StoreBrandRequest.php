@@ -25,7 +25,7 @@ class StoreBrandRequest extends FormRequest
     {
         return [
             'category_id' => 'required', 
-            'name' => 'required|string|min:6|max:30',
+            'name' => 'required|string|min:5|max:30',
             'code_name' => 'nullable',
             'description' => 'nullable',
         ];

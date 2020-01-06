@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Admin\Product;
 
+use App\User;
 use App\Brand;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Brand\StoreBrandRequest;
 use App\Http\Requests\Brand\UpdateBrandRequest;
 use App\Repositories\BrandRepository;
 use App\Repositories\Product\CategoryRepository;
-use App\User;
-use Illuminate\Http\Request;
 
 class BrandManagementController extends Controller
 {
@@ -70,8 +70,6 @@ class BrandManagementController extends Controller
      */
     public function update($id, UpdateBrandRequest $request)
     {
-        $request->validated();
-
         $brand = $this->brand->updateBrand($id, $request->all());
 
         if (! $brand) {

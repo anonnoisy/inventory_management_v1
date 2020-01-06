@@ -13,7 +13,7 @@ class UpdateItemRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class UpdateItemRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'category_id' => 'required',
+            'brand_id' => 'required',
+            'name' => 'required|string|min:6|max:30',
+            'code_name' => 'nullable',
+            'description' => 'nullable|max:150',
+            'price' => 'required|integer',
+            'quantity' => 'required|integer|min:1'
         ];
     }
 }

@@ -44,20 +44,19 @@
                     </a>
                 </div>
                 {{-- badge filter --}}
-                <form action="{{ route('admin::product-manage::category::search-by-filter') }}" method="GET">
+                <form action="{{ route('admin::product-manage::item::search-by-filter') }}" method="GET">
                     @method('GET')
-                    @csrf
                     <div class="badges mt-3 ml-3">
                         <div class="row align-items-center">
                             <div class="col col-md-6 col-lg-6">
-                                <button name="all" class="badge badge-primary" data-toggle="tooltip" data-placement="top" title data-original-title="Show all the categories">All Categories</button>
-                                <button name="active" class="badge badge-success" data-toggle="tooltip" data-placement="top" title data-original-title="Only show all the categories is active">Active Categories</button>
-                                <button name="inactive" class="badge badge-danger" data-toggle="tooltip" data-placement="top" title data-original-title="Only show all the categories is inactive">Inactive Categories</button>
+                                <button name="all" class="badge badge-primary" data-toggle="tooltip" data-placement="top" title data-original-title="Show all the items">All Items</button>
+                                <button name="active" class="badge badge-success" data-toggle="tooltip" data-placement="top" title data-original-title="Only show all the items is active">Active Items</button>
+                                <button name="inactive" class="badge badge-danger" data-toggle="tooltip" data-placement="top" title data-original-title="Only show all the items is inactive">Inactive Items</button>
                             </div>
                             <div class="col col-md-6 col-lg-6">
                                 <div class="form-inline justify-content-end mr-3 search-form">
                                     <div class="form-group mb-3">
-                                        <input class="form-control rounded-pill mr-3" type="text" name="search" placeholder="Search category name or code" value="{{ $search ?? '' }}">
+                                        <input class="form-control rounded-pill mr-3" type="text" name="search" placeholder="Search item name or code" value="{{ $search ?? '' }}">
                                         <button class="btn btn-primary btn-small rounded-pill pl-4 pr-4">Search</button>
                                     </div>
                                 </div>
@@ -91,10 +90,10 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin::product-manage::category::show', [ $item->id ]) }}" class="btn btn-primary">
+                                    <a href="{{ route('admin::product-manage::item::show', [ $item->id ]) }}" class="btn btn-primary">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="{{ route('admin::product-manage::category::destroy', [ $item->id ]) }}" class="btn btn-danger">
+                                    <a href="{{ route('admin::product-manage::item::destroy', [ $item->id ]) }}" class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
@@ -109,7 +108,7 @@
                     </div>
                 </div>
                 <div class="card-footer text-right">
-                    <nav class="d-inline-block">
+                    {{-- <nav class="d-inline-block">
                         <ul class="pagination mb-0">
                             <li class="page-item disabled">
                                 <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
@@ -123,7 +122,8 @@
                                 <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
                             </li>
                         </ul>
-                    </nav>
+                    </nav> --}}
+                    {!! $items->appends(Request::all())->links() !!}
                 </div>
             </div>
         </div>
