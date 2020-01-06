@@ -13,7 +13,7 @@ class BrandRepository implements BrandRepositoryInterface
     /**
      * This function for get a brand by id
      */
-    public function getBrandById(int $id)
+    public function getBrand(int $id)
     {
         return Brand::with('users')->where('id', $id)->first();
     }

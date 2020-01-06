@@ -61,7 +61,7 @@ class BrandManagementController extends Controller
      */
     public function show($id)
     {
-        $brand = $this->brand->getBrandById($id);
+        $brand = $this->brand->getBrand($id);
         return view('pages.admin.products.brands.show', compact('brand'));
     }
 
@@ -76,7 +76,7 @@ class BrandManagementController extends Controller
             return redirect()->back()->with('status', 'Failed to update a brand');
         }
 
-        return redirect()->back()->with('status', 'Successfully to update a brand');
+        return redirect()->route('admin::product-manage::brand::home')->with('status', 'Successfully to update a brand');
     }
 
     /**
