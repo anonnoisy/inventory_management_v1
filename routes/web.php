@@ -91,4 +91,21 @@ Route::prefix('/dashboard')->namespace('Admin')->name('admin::')->group(function
 
     });
 
+    // Route to customer management
+    Route::prefix('/customer-manage')->namespace('Customer')->name('customer-manage::')->group(function (){
+
+        // Route to customer management
+        Route::name('customer::')->group(function (){
+            Route::get('manage-customers', 'CustomerManagementController@index')->name('home');
+            Route::get('manage-customers/create', 'CustomerManagementController@create')->name('create');
+            Route::post('manage-customers/create/store', 'CustomerManagementController@store')->name('store');
+            Route::get('manage-customer/{id}/show', 'CustomerManagementController@show')->name('show');
+            Route::put('manage-customer/{id}/update', 'CustomerManagementController@update')->name('update');
+            Route::put('manage-customer/{id}/update/status', 'CustomerManagementController@status')->name('status');
+            Route::get('manage-customer/{id}/delete', 'CustomerManagementController@destroy')->name('destroy');
+            Route::get('manage-customers/search', 'CustomerManagementController@searchByFilter')->name('search-by-filter');
+        });
+
+    });
+
 });

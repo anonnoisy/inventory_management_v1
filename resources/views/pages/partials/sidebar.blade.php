@@ -29,10 +29,18 @@
           </li>
         </ul>
       </li>
+      <li class="nav-item dropdown {{ Request::is('customer-management') ? 'active' : '' }}">
+        <a href="javascript;;" class="nav-link has-dropdown"><i class="fas fa-users"></i><span>Customers Management</span></a>
+        <ul class="dropdown-menu">
+          <li class="Request::is('customer-management/customer') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin::customer-manage::customer::home') }}">Customers</a>
+          </li>
+        </ul>
+      </li>
       <li class="nav-item dropdown {{ Request::is('user-management') ? 'active' : '' }}">
         <a href="javascript;;" class="nav-link has-dropdown"><i class="fas fa-user-alt"></i><span>Users Management</span></a>
         <ul class="dropdown-menu">
-          <li class Request::is('user-management/administrator') ? 'active' : '' }}">
+          <li class="Request::is('user-management/administrator') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin::user-manage::admin::home') }}">Administrators</a>
           </li>
           <li class="{{ Request::is('user-management/head-of-warehouse') ? 'active' : '' }}">
