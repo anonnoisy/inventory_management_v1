@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -14,12 +14,12 @@ class Category extends Model
 
     public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('App\User', 'user_parent_id');
     }
 
     public function brands()
     {
-        return $this->hasMany(Brand::class);
+        return $this->hasMany('App\Model\Brand');
     }
 
 }

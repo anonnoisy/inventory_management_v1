@@ -2,10 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Brand;
-use App\Category;
+use App\Model\Brand;
 use App\Generators\RandomNameGenerator;
-use App\Repositories\Interfaces\BrandRepositoryInterface;
+use App\Repositories\Interfaces\Product\BrandRepositoryInterface;
 
 class BrandRepository implements BrandRepositoryInterface
 {

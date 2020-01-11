@@ -88,7 +88,7 @@ class UserRepository implements UserRepositoryInterface
 
     $user = User::where('id', $id)->first();
 
-    if (! $this->userHasSameEmail($id, $data['email'])) {
+    if (! $this->userHasSameEmail($id)) {
       $user = User::where('id', $id)->first();
     }
 

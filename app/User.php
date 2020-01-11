@@ -37,24 +37,37 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'user_roles' => 1
+    ];
+
     public function user_roles() {
-        return $this->belongsTo('App\UserRole');
+        return $this->belongsTo('App\Model\UserRole');
+    }
+
+    public function vendors() {
+        return $this->hasMany('App\Model\Vendor');
     }
 
     public function brands() {
-        return $this->hasMany(Brand::class);
+        return $this->hasMany('App\Model\Brand');
     }
 
     public function categories() {
-        return $this->hasMany(Category::class);
+        return $this->hasMany('App\Model\Category');
     }
 
     public function items() {
-        return $this->hasMany(Item::class);
+        return $this->hasMany('App\Model\Item');
     }
 
     public function customers() {
-        return $this->hasMany(Customer::class);
+        return $this->hasMany('App\Model\Customer');
     }
 
 

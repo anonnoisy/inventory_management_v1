@@ -54,6 +54,18 @@ Route::prefix('/dashboard')->namespace('Admin')->name('admin::')->group(function
     Route::prefix('/product-manage')->namespace('Product')->name('product-manage::')->group(function (){
 
         // Route tot category product management
+        Route::name('vendor::')->group(function() {
+            Route::get('manage-vendors', 'VendorManagementController@index')->name('home');
+            Route::get('manage-vendor/create', 'VendorManagementController@create')->name('create');
+            Route::post('manage-vendor/store', 'VendorManagementController@store')->name('store');
+            Route::get('manage-vendor/{id}/show', 'VendorManagementController@show')->name('show');
+            Route::put('manage-vendor/{id}/update', 'VendorManagementController@update')->name('update');
+            Route::put('manage-vendor/{id}/update/status', 'VendorManagementController@status')->name('status');
+            Route::get('manage-vendor/{id}/delete', 'VendorManagementController@destroy')->name('destroy');
+            Route::get('manage-vendor/search', 'VendorManagementController@searchByFilter')->name('search-by-filter');
+        });
+
+        // Route tot category product management
         Route::name('category::')->group(function() {
             Route::get('manage-categories', 'CategoryManagementController@index')->name('home');
             Route::get('manage-category/create', 'CategoryManagementController@create')->name('create');

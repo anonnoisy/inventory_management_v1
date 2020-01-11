@@ -18,6 +18,9 @@
       <li class="nav-item dropdown {{ Request::is('product-manage') ? 'active' : '' }}">
         <a href="javascript;;" class="nav-link has-dropdown"><i class="fas fa-ticket-alt"></i><span>Products Management</span></a>
         <ul class="dropdown-menu">
+          <li class="{{ Request::is('product-manage/vendors') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin::product-manage::vendor::home') }}">Vendors</a>
+          </li>
           <li class="{{ Request::is('product-manage/categories') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin::product-manage::category::home') }}">Categories</a>
           </li>

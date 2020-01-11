@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Brand\StoreBrandRequest;
 use App\Http\Requests\Brand\UpdateBrandRequest;
-use App\Repositories\BrandRepository;
+use App\Repositories\Product\BrandRepository;
 use App\Repositories\Product\CategoryRepository;
 
 class BrandManagementController extends Controller
