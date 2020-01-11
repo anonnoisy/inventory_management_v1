@@ -14,12 +14,12 @@ class Brand extends Model
 
     public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('App\User', 'user_parent_id');
     }
 
     public function categories()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo('App\Model\Category', 'category_id');
     }
 
 }

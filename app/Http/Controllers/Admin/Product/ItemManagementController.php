@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Product;
 use App\Item;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\BrandRepository;
+use App\Repositories\Product\BrandRepository;
 use App\Repositories\Product\CategoryRepository;
 use App\Repositories\Product\ItemRepository;
 use App\Http\Requests\Item\StoreItemRequest;

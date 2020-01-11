@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Product;
 use App\Model\Vendor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Product\VendorRequest;
+use App\Http\Requests\Vendor\VendorRequest;
 use App\Repositories\Product\VendorRepository;
 
 class VendorManagementController extends Controller
