@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Interfaces;
+namespace App\Repositories\Interfaces\Product;
 
 interface BrandRepositoryInterface
 {
@@ -8,7 +8,7 @@ interface BrandRepositoryInterface
     /**
      * This function for get a brand by id
      */
-    public function getBrandById(int $id);
+    public function getBrand(int $id);
 
     /**
      * This function fot get all brands what user have

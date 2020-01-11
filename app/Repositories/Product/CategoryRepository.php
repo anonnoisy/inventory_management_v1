@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Product;
 
-use App\Category;
+use App\Model\Category;
 use App\Generators\RandomNameGenerator;
 use App\Repositories\Interfaces\Product\CategoryRepositoryInterface;
 
@@ -14,7 +14,8 @@ class CategoryRepository implements CategoryRepositoryInterface
      */
     public function getCategory($id)
     {
-        return Category::where('user_parent_id', auth()->user()->id)
+        return Category::with('users')
+                        ->where('user_parent_id', auth()->user()->id)
                         ->where('id', $id)
                         ->first();
     }
@@ -24,7 +25,8 @@ class CategoryRepository implements CategoryRepositoryInterface
      */
     public function getCategories()
     {
-        return Category::where('user_parent_id', auth()->user()->id)
+        return Category::with('users')
+                        ->where('user_parent_id', auth()->user()->id)
                         ->orderBy('created_at', 'DESC')
                         ->paginate(10);
     }

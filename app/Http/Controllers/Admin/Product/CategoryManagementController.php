@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Product;
 
-use App\Category;
+use App\Model\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\StoreCategoryRequest;
 use App\Repositories\Product\CategoryRepository;
@@ -27,7 +27,6 @@ class CategoryManagementController extends Controller
     public function index()
     {
         $categories = $this->category->getCategories();
-        // dd($categories);
         return view('pages.admin.products.categories.index', compact('categories'));
     }
 

@@ -18,18 +18,32 @@
       <li class="nav-item dropdown {{ Request::is('product-manage') ? 'active' : '' }}">
         <a href="javascript;;" class="nav-link has-dropdown"><i class="fas fa-ticket-alt"></i><span>Products Management</span></a>
         <ul class="dropdown-menu">
+          <li class="{{ Request::is('product-manage/vendors') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin::product-manage::vendor::home') }}">Vendors</a>
+          </li>
           <li class="{{ Request::is('product-manage/categories') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin::product-manage::category::home') }}">Categories</a>
           </li>
           <li class="{{ Request::is('product-manage/brands') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin::product-manage::brand::home') }}">Brands</a>
           </li>
+          <li class="{{ Request::is('product-manage/items') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin::product-manage::item::home') }}">Items</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown {{ Request::is('customer-management') ? 'active' : '' }}">
+        <a href="javascript;;" class="nav-link has-dropdown"><i class="fas fa-users"></i><span>Customers Management</span></a>
+        <ul class="dropdown-menu">
+          <li class="Request::is('customer-management/customer') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin::customer-manage::customer::home') }}">Customers</a>
+          </li>
         </ul>
       </li>
       <li class="nav-item dropdown {{ Request::is('user-management') ? 'active' : '' }}">
         <a href="javascript;;" class="nav-link has-dropdown"><i class="fas fa-user-alt"></i><span>Users Management</span></a>
         <ul class="dropdown-menu">
-          <li class Request::is('user-management/administrator') ? 'active' : '' }}">
+          <li class="Request::is('user-management/administrator') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin::user-manage::admin::home') }}">Administrators</a>
           </li>
           <li class="{{ Request::is('user-management/head-of-warehouse') ? 'active' : '' }}">

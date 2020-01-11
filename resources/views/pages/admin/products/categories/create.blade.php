@@ -59,7 +59,7 @@
                         </div>
 
                         <div class="form-group">
-                            <a href="{{ route('admin::user-manage::category::home') }}" class="btn btn-danger btn-lg">Cancel</a>
+                            <a href="{{ route('admin::product-manage::category::home') }}" class="btn btn-danger btn-lg">Cancel</a>
                             <button type="submit" class="btn btn-primary btn-lg">Create a Category</button>
                         </div>
                     </form>
