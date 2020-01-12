@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Product;
 
-use App\Item;
+use App\Model\Item;
 use App\Generators\RandomNameGenerator;
 use App\Repositories\Interfaces\Product\ItemRepositoryInterface;
 
