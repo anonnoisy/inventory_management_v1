@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Customer;
 
-use App\Customer;
+use App\Model\Customer;
 use Illuminate\Support\Facades\Hash;
 use App\Repositories\Interfaces\Customer\CustomerRepositoryInterface;
 
@@ -131,7 +131,8 @@ class CustomerRepository implements CustomerRepositoryInterface
 
         if (! empty($data['search'])) {
             $customers->where('firstname', 'like', '%'. $data['search'] .'%')
-                    ->orWhere('lastname', 'like', '%'. $data['search'] .'%');
+                    ->orWhere('lastname', 'like', '%'. $data['search'] .'%')
+                    ->orWhere('number_id', 'like', '%'. $data['search'] .'%');
         }
 
         return $customers->paginate(10);
