@@ -103,6 +103,19 @@ Route::prefix('/dashboard')->namespace('Admin')->name('admin::')->group(function
 
     });
 
+    Route::prefix('/stock-manage')->namespace('Stock')->name('stock-manage::')->group(function (){
+
+        Route::name('stock::')->group(function (){
+            Route::get('manage-stocks', 'StockManagementController@index')->name('home');
+            Route::get('manage-stocks/create', 'StockManagementController@create')->name('create');
+            Route::get('manage-stocks/create/store', 'StockManagementController@store')->name('store');
+            Route::get('manage-stock/stock/in', 'StockManagementController@stockIn')->name('stock-in');
+            Route::post('manage-stock/stock/out/{id}', 'StockManagementController@stockOut')->name('stock-out');
+            Route::get('manage-stocks/search', 'StockManagementController@searchByFilter')->name('search-by-filter');
+        });
+
+    });
+
     // Route to customer management
     Route::prefix('/customer-manage')->namespace('Customer')->name('customer-manage::')->group(function (){
 

@@ -97,7 +97,7 @@ class ItemRepository implements ItemRepositoryInterface
 
         if (! empty($data['search'])) {
             $items->where('name', 'like', '%'. $data['search'] .'%')
-                    ->orWhere('code_name', 'like', '%'. $data['search'] .'%');
+                ->orWhere('code_name', 'like', '%'. $data['search'] .'%');
         }
 
         return $items->paginate(10);

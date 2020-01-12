@@ -32,6 +32,11 @@
           </li>
         </ul>
       </li>
+      <li class="{{ Request::is('stock-manage') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin::stock-manage::stock::home') }}">
+          <i class="fas fa-fire"></i> <span>Dashboard</span>
+        </a>
+      </li>
       <li class="nav-item dropdown {{ Request::is('customer-management') ? 'active' : '' }}">
         <a href="javascript;;" class="nav-link has-dropdown"><i class="fas fa-users"></i><span>Customers Management</span></a>
         <ul class="dropdown-menu">
